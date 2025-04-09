@@ -1,0 +1,39 @@
+{
+  "name": "civiclink-backend",
+  "version": "1.0.0",
+  "description": "An app that bridges the differences between nigerian government structure and it's citizens",
+  "keywords": [
+    "nigerian",
+    "government",
+    "structure",
+    "demystify"
+  ],
+  "homepage": "https://github.com/jvstln/civiclink-backend#readme",
+  "bugs": {
+    "url": "https://github.com/jvstln/civiclink-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvstln/civiclink-backend.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "build/app.js",
+  "scripts": {
+    "start": "node build/app.js",
+    "build": "tsc",
+    "dev": "nodemon src/app.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "joi": "^17.13.3",
+    "mongoose": "^8.13.2"
+  }
+}
