@@ -1,7 +1,5 @@
 import { Router } from "express";
-
+import { getStates } from "../controllers/state.controller";
 export const indexRouter = Router();
 
-indexRouter.get("/", (req, res) => {
-  res.json({ message: "Hello World" });
-});
+indexRouter.get("/states", getStates);

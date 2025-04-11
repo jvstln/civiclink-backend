@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1", indexRouter);
 
 // Connect to DB first before starting up the server
-connectToDatabase(process.env.MONGODB_URI!)
+connectToDatabase()
   .then(() => {
     app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
   })
