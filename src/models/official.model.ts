@@ -48,4 +48,4 @@ const userSchema = new Schema(
 
 userSchema.index({ position: 1, jurisdiction: 1 }, { unique: true });
 
-export const OfficialModel = model("Official", userSchema);
+export const officialModel = model("Official", userSchema);
