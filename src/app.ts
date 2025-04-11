@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import { connectToDatabase } from "./utils/db";
 import { indexRouter } from "./routes/index.route";
+import { errorMiddleware } from "./middlewares/error.middleware";
 
 const app = express();
 
@@ -13,6 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/v1", indexRouter);
+
+// Error handling middleware
+app.use(errorMiddleware);
 
 // Connect to DB first before starting up the server
 connectToDatabase()

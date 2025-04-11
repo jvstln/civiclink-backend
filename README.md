@@ -80,6 +80,12 @@ npm run build
 npm start
 ```
 
+### Coding Style (Brief Guide)
+
+- Prefer named exports to default exports
+- Prefer functions over classes in controllers and services
+- Do not use try..catch in controllers and routes. Instead throw `ResponseError` (which can be found in `/src/utils/error.ts`), Errors will be caught by express error middleware (a new feature in express v5)
+
 ## 📝 API Documentation
 
 ---
@@ -108,13 +114,63 @@ This endpoint returns a comprehensive list of all states in Nigeria and their co
       "LGA3"
       // ... more LGAs
     ]
-    // ... more states
   }
 }
 ```
 
 ---
 
+### Officials API
+
+#### Get All Government Officials
+
+Retrieves a list of all government officials with their details.
+
+**Endpoint:** `GET /officials`
+
+**Description:**
+This endpoint returns a list of all government officials, including their personal information, positions, and jurisdictions. The data includes officials at various levels of government (federal, state, local).
+
+**Response Body:**
+
+```json
+{
+  "success": true,
+  "messages": "officials retrieved successfully",
+  "data": [
+    {
+      "name": "string",
+      "position": "string",
+      "jurisdiction": "string",
+      "level": "string",
+      "state": "string",
+      "description": "string",
+      "email": "string",
+      "phone": "string",
+      "categories": ["string"],
+      "createdAt": "date",
+      "updatedAt": "date"
+    }
+  ]
+}
+```
+
+**Response Fields:**
+
+- `name`: Full name of the official
+- `position`: Current position/role
+- `jurisdiction`: Area of responsibility
+- `level`: Government level (federal/state/local)
+- `state`: State of jurisdiction
+- `description`: Additional information about the official
+- `email`: Contact email address
+- `phone`: Contact phone number
+- `categories`: Array of categories the official belongs to
+- `createdAt`: Timestamp of when the record was created
+- `updatedAt`: Timestamp of when the record was last updated
+
+---
+
 ## 👥 Authors
 
-- Group 3 Backend Dev (Learnable)
+- Group 3 Backend Devs (Learnable)

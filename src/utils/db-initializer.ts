@@ -1,5 +1,5 @@
 import { disconnect } from "mongoose";
-import { OfficialModel } from "../models/official.model";
+import { officialModel } from "../models/official.model";
 import * as fs from "fs";
 import * as path from "path";
 import * as csv from "csv-parse/sync";
@@ -24,7 +24,7 @@ export async function initializeDatabase() {
   });
 
   // Clear existing data
-  await OfficialModel.deleteMany({});
+  await officialModel.deleteMany({});
 
   // Insert new data
   const officials = records.map((record) => ({
@@ -39,7 +39,7 @@ export async function initializeDatabase() {
     categories: record.categories,
   }));
 
-  await OfficialModel.insertMany(officials);
+  await officialModel.insertMany(officials);
   console.log(`Successfully inserted ${officials.length} officials`);
 
   // Disconnect from MongoDB

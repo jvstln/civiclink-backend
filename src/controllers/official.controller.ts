@@ -1,26 +1,13 @@
 import { Request, Response } from "express";
+import * as officialService from "../services/official.service";
+import { ResponseError } from "../utils/error";
 
+export const getAllOfficials = async (_req: Request, res: Response) => {
+  const officials = await officialService.getOfficials();
 
-import { OfficialModel } from "../models/official.model"; 
-
-export const getAllOfficials = async (req: Request, res: Response) => {
-  try {
-    // Fetch all officials from the database
-    const officials = await OfficialModel.find({});
-
-    res.status(200).json({
-        "success":true,
-        "messages": " officials retrieved successfully",
-        "data":{officials}
-
-    }); // Return officials in the response
-  } catch (error) {
-    console.error("Error fetching officials:", error);
-    res.status(500).json({ 
-        "success":false,
-        message: "Server error fetching officials",
-     });
-  }
+  res.status(200).json({
+    success: true,
+    messages: " officials retrieved successfully",
+    data: officials,
+  });
 };
-
-
