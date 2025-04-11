@@ -122,6 +122,24 @@ This endpoint returns a comprehensive list of all states in Nigeria and their co
 
 ### Officials API
 
+OfficialSchema looks like this
+
+```json
+{
+  "name": "string",
+  "position": "string",
+  "jurisdiction": "string",
+  "level": "string",
+  "state": "string",
+  "description": "string",
+  "email": "string",
+  "phone": "string",
+  "categories": ["string"],
+  "createdAt": "date",
+  "updatedAt": "date"
+}
+```
+
 #### Get All Government Officials
 
 Retrieves a list of all government officials with their details.
@@ -138,19 +156,7 @@ This endpoint returns a list of all government officials, including their person
   "success": true,
   "messages": "officials retrieved successfully",
   "data": [
-    {
-      "name": "string",
-      "position": "string",
-      "jurisdiction": "string",
-      "level": "string",
-      "state": "string",
-      "description": "string",
-      "email": "string",
-      "phone": "string",
-      "categories": ["string"],
-      "createdAt": "date",
-      "updatedAt": "date"
-    }
+    ...<OfficialSchema>(s)
   ]
 }
 ```
@@ -168,6 +174,46 @@ This endpoint returns a list of all government officials, including their person
 - `categories`: Array of categories the official belongs to
 - `createdAt`: Timestamp of when the record was created
 - `updatedAt`: Timestamp of when the record was last updated
+
+#### Get Official by ID
+
+Retrieves detailed information about a specific government official.
+
+**Endpoint:** `GET /officials/:officialId`
+
+**Description:**
+This endpoint returns detailed information about a specific government official identified by their unique ID. The ID must be a valid MongoDB ObjectId.
+
+**URL Parameters:**
+
+- `officialId`: The unique identifier of the official (MongoDB ObjectId or \_id)
+
+**Response Body:**
+
+```json
+{
+  "success": true,
+  "messages": "official retrieved successfully",
+  "data": <OfficialSchema>
+}
+```
+
+**Error Responses:**
+
+- **404 Not Found**
+  ```json
+  {
+    "success": false,
+    "message": "Official not found"
+  }
+  ```
+- **400 Bad Request**
+  ```json
+  {
+    "success": false,
+    "message": "Invalid officialId format"
+  }
+  ```
 
 ---
 
