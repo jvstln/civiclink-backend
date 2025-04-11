@@ -82,7 +82,38 @@ npm start
 
 ## 📝 API Documentation
 
-(Coming soon)
+---
+
+### States API
+
+#### Get All States and Their Local Government Areas
+
+Retrieves a list of all Nigerian states along with their respective Local Government Areas (LGAs).
+
+**Endpoint:** `GET /states`
+
+**Description:**
+This endpoint returns a comprehensive list of all states in Nigeria and their corresponding Local Government Areas. The data is structured as an object where each state is a key, and its value is an array of LGAs.
+
+**Response Body:**
+
+```json
+{
+  "success": true,
+  "message": "States and sub regions retrieved successfully",
+  "data": {
+    "StateName": [
+      "LGA1",
+      "LGA2",
+      "LGA3"
+      // ... more LGAs
+    ]
+    // ... more states
+  }
+}
+```
+
+---
 
 ## 👥 Authors
 
