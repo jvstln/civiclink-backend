@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { getStates } from "../controllers/state.controller";
+import * as stateController from "../controllers/state.controller";
+import { officialRouter } from "./official.route";
 export const indexRouter = Router();
 
-indexRouter.get("/states", getStates);
+indexRouter.use("/officials", officialRouter);
+
+indexRouter.get("/states", stateController.getStates);

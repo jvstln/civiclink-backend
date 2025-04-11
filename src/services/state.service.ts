@@ -1,4 +1,4 @@
-import axios from "axios";
+
 
 class StateService {
   async getStates() {
@@ -855,4 +855,4 @@ class StateService {
   }
 }
 
-export default new StateService();
+export const stateService = new StateService();

@@ -80,6 +80,12 @@ npm run build
 npm start
 ```
 
+### Coding Style (Brief Guide)
+
+- Prefer named exports to default exports
+- Prefer functions over classes in controllers and services
+- Do not use try..catch in controllers and routes. Instead throw `ResponseError` (which can be found in `/src/utils/error.ts`), Errors will be caught by express error middleware (a new feature in express v5)
+
 ## 📝 API Documentation
 
 ---
@@ -108,13 +114,109 @@ This endpoint returns a comprehensive list of all states in Nigeria and their co
       "LGA3"
       // ... more LGAs
     ]
-    // ... more states
   }
 }
 ```
 
 ---
 
+### Officials API
+
+OfficialSchema looks like this
+
+```json
+{
+  "name": "string",
+  "position": "string",
+  "jurisdiction": "string",
+  "level": "string",
+  "state": "string",
+  "description": "string",
+  "email": "string",
+  "phone": "string",
+  "categories": ["string"],
+  "createdAt": "date",
+  "updatedAt": "date"
+}
+```
+
+#### Get All Government Officials
+
+Retrieves a list of all government officials with their details.
+
+**Endpoint:** `GET /officials`
+
+**Description:**
+This endpoint returns a list of all government officials, including their personal information, positions, and jurisdictions. The data includes officials at various levels of government (federal, state, local).
+
+**Response Body:**
+
+```json
+{
+  "success": true,
+  "messages": "officials retrieved successfully",
+  "data": [
+    ...<OfficialSchema>(s)
+  ]
+}
+```
+
+**Response Fields:**
+
+- `name`: Full name of the official
+- `position`: Current position/role
+- `jurisdiction`: Area of responsibility
+- `level`: Government level (federal/state/local)
+- `state`: State of jurisdiction
+- `description`: Additional information about the official
+- `email`: Contact email address
+- `phone`: Contact phone number
+- `categories`: Array of categories the official belongs to
+- `createdAt`: Timestamp of when the record was created
+- `updatedAt`: Timestamp of when the record was last updated
+
+#### Get Official by ID
+
+Retrieves detailed information about a specific government official.
+
+**Endpoint:** `GET /officials/:officialId`
+
+**Description:**
+This endpoint returns detailed information about a specific government official identified by their unique ID. The ID must be a valid MongoDB ObjectId.
+
+**URL Parameters:**
+
+- `officialId`: The unique identifier of the official (MongoDB ObjectId or \_id)
+
+**Response Body:**
+
+```json
+{
+  "success": true,
+  "messages": "official retrieved successfully",
+  "data": <OfficialSchema>
+}
+```
+
+**Error Responses:**
+
+- **404 Not Found**
+  ```json
+  {
+    "success": false,
+    "message": "Official not found"
+  }
+  ```
+- **400 Bad Request**
+  ```json
+  {
+    "success": false,
+    "message": "Invalid officialId format"
+  }
+  ```
+
+---
+
 ## 👥 Authors
 
-- Group 3 Backend Dev (Learnable)
+- Group 3 Backend Devs (Learnable)
