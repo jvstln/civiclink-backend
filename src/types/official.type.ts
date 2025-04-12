@@ -1,3 +1,5 @@
+import { Category } from "./category.type";
+
 export interface Official {
   _id: string;
   level: string;
@@ -8,5 +10,5 @@ export interface Official {
   email: string;
   phone: string;
   description: string;
-  categories: string[];
+  category: string | Category;
 }

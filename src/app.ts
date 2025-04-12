@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 5000;
 // Generic middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 // Routes
 app.use("/api/v1", indexRouter);

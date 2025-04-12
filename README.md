@@ -217,6 +217,116 @@ This endpoint returns detailed information about a specific government official 
 
 ---
 
+### Categories API
+
+#### Get All Categories
+
+Retrieves a list of all available categories.
+
+**Endpoint:** `GET /categories`
+
+**Query Parameters:**
+
+- `name` (optional): Filter categories by name
+
+**Response Body:**
+
+```json
+{
+  "status": "success",
+  "message": "Categories fetched successfully",
+  "data": [
+    {
+      "_id": "string",
+      "name": "string",
+      "description": "string"
+    }
+  ]
+}
+```
+
+#### Get Category by ID
+
+Retrieves detailed information about a specific category.
+
+**Endpoint:** `GET /categories/:categoryId`
+
+**URL Parameters:**
+
+- `categoryId`: The unique identifier of the category (MongoDB ObjectId)
+
+**Response Body:**
+
+```json
+{
+  "status": "success",
+  "message": "Category fetched successfully",
+  "data": {
+    "_id": "string",
+    "name": "string",
+    "description": "string"
+  }
+}
+```
+
+**Error Responses:**
+
+- **404 Not Found**
+  ```json
+  {
+    "status": "error",
+    "message": "Category not found"
+  }
+  ```
+- **400 Bad Request**
+  ```json
+  {
+    "status": "error",
+    "message": "Invalid categoryId format"
+  }
+  ```
+
+#### Get Category by Name
+
+Retrieves a category by its name.
+
+**Endpoint:** `GET /categories?name=<nameOfCategory>`
+
+**URL Query Parameters:**
+
+- `name`: The name of the category
+
+**Response Body:**
+
+```json
+{
+  "status": "success",
+  "message": "Category fetched successfully",
+  "data": {
+    "_id": "string",
+    "name": "string",
+    "description": "string"
+  }
+}
+```
+
+**Available Categories:**
+
+- governance-and-representation
+- taxes-and-levies
+- health-services
+- markets-and-small-business
+- public-safety-and-security
+- social-services
+- electricity-and-power
+- water-and-sanitation
+- jobs-and-youth-empowerment
+- housing-and-urban-planning
+- roads-and-infrastructure
+- education
+
+---
+
 ## 👥 Authors
 
 - Group 3 Backend Devs (Learnable)
