@@ -235,6 +235,76 @@ This endpoint returns detailed information about a specific government official 
 
 ---
 
+### Official Fields API
+
+This API provides endpoints to retrieve distinct values for various fields used in the officials data.
+
+#### Get Available Levels
+
+Retrieves a list of all distinct government levels.
+
+**Endpoint:** `GET /official-fields/levels`
+
+**Response Body:**
+
+```json
+{
+  "success": true,
+  "message": "Levels fetched successfully",
+  "data": ["federal", "state", ...]
+}
+```
+
+#### Get Available States
+
+Retrieves a list of all distinct states.
+
+**Endpoint:** `GET /official-fields/states`
+
+**Response Body:**
+
+```json
+{
+  "success": true,
+  "message": "States fetched successfully",
+  "data": ["lagos", "abuja", "rivers", ...]
+}
+```
+
+#### Get Available Positions
+
+Retrieves a list of all distinct government positions.
+
+**Endpoint:** `GET /official-fields/positions`
+
+**Response Body:**
+
+```json
+{
+  "success": true,
+  "message": "Positions fetched successfully",
+  "data": ["governor", "senator", "minister", ...]
+}
+```
+
+#### Get Available Jurisdictions
+
+Retrieves a list of all distinct jurisdictions.
+
+**Endpoint:** `GET /official-fields/jurisdictions`
+
+**Response Body:**
+
+```json
+{
+  "success": true,
+  "message": "Jurisdictions fetched successfully",
+  "data": ["lagos state", "federal ministry of health", ...]
+}
+```
+
+---
+
 ### Categories API
 
 #### Get All Categories
