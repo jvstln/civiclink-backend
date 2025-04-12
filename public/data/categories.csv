@@ -1,13 +1,13 @@
-name,description
-governance-and-representation,"Government officials responsible for policy-making, administration, and representation at various levels of government"
-taxes-and-levies,"Officials handling tax collection, revenue generation, and financial regulations"
-health-services,"Officials managing healthcare systems, medical facilities, and public health initiatives"
-education,"Officials overseeing educational institutions, policies, and academic programs"
-markets-and-small-business,"Officials regulating commerce, trade, and supporting small business development"
-roads-and-infrastructure,"Officials managing transportation networks, public works, and infrastructure development"
-public-safety-and-security,"Officials responsible for law enforcement, security, and public safety measures"
-social-services,"Officials providing social welfare programs and community support services"
-electricity-and-power,"Officials managing power generation, distribution, and energy infrastructure"
-water-and-sanitation,"Officials overseeing water supply, sanitation systems, and public utilities"
-jobs-and-youth-empowerment,"Officials handling employment programs and youth development initiatives"
-housing-and-urban-planning,"Officials managing housing projects and urban development planning"
+name,description,image
+governance-and-representation,"Government officials responsible for policy-making, administration, and representation at various levels of government",https://res.cloudinary.com/dzhuwar6f/image/upload/v1744477016/male-business-executive-giving-speech_107420-63807_xtx75t.avif
+taxes-and-levies,"Officials handling tax collection, revenue generation, and financial regulations",https://res.cloudinary.com/dzhuwar6f/image/upload/v1744477074/side-view-people-garage-sale_23-2150574525_m3yk78.avif
+health-services,"Officials managing healthcare systems, medical facilities, and public health initiatives",https://res.cloudinary.com/dzhuwar6f/image/upload/v1744477139/close-up-african-american-hand-holding-stethoscope_482257-19507_y7g5r9.avif
+education,"Officials overseeing educational institutions, policies, and academic programs",
+markets-and-small-business,"Officials regulating commerce, trade, and supporting small business development",
+roads-and-infrastructure,"Officials managing transportation networks, public works, and infrastructure development",
+public-safety-and-security,"Officials responsible for law enforcement, security, and public safety measures",
+social-services,Officials providing social welfare programs and community support services,
+electricity-and-power,"Officials managing power generation, distribution, and energy infrastructure",
+water-and-sanitation,"Officials overseeing water supply, sanitation systems, and public utilities",
+jobs-and-youth-empowerment,Officials handling employment programs and youth development initiatives,
+housing-and-urban-planning,Officials managing housing projects and urban development planning,

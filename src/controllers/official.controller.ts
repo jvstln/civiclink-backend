@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import * as officialService from "../services/official.service";
 import { ResponseError } from "../utils/error";
+import * as categoryService from "../services/category.service";
 
 export const getAllOfficials = async (req: Request, res: Response) => {
   const filters: Record<string, string> = {};
@@ -17,6 +18,15 @@ export const getAllOfficials = async (req: Request, res: Response) => {
   addToFilter("position");
   addToFilter("jurisdiction");
   addToFilter("name");
+
+  if (filters.category) {
+    const category = await categoryService.getCategoryByName(filters.category);
+
+    if (!category) {
+      throw new ResponseError(404, `Category "${filters.category}" not found`);
+    }
+    filters.category = category._id.toString();
+  }
 
   let officials = await officialService.getOfficials(filters);
 

@@ -8,6 +8,7 @@ const categorySchema = new mongoose.Schema({
     lowercase: true,
   },
   description: { type: String },
+  image: { type: String },
 });
 
 export const categoryModel = mongoose.model("Category", categorySchema);

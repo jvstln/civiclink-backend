@@ -45,6 +45,7 @@ export async function initializeDatabase() {
 
       return {
         name: record.name,
+        image: record.image,
         position: record.position.toLowerCase(),
         jurisdiction: record.jurisdiction.toLowerCase(),
         level: record.level.toLowerCase(),

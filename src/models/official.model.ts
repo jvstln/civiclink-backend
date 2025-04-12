@@ -38,6 +38,7 @@ const officialSchema = new Schema<Official>(
     },
     phone: { type: String, required: [true, "Phone of official is required"] },
     category: { type: Schema.Types.ObjectId, ref: "Category" },
+    image: { type: String },
   },
   {
     timestamps: true,
