@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
+import { Official } from "../types/official.type";
 
-const userSchema = new Schema(
+const officialSchema = new Schema<Official>(
   {
     name: {
       type: String,
@@ -36,16 +37,13 @@ const userSchema = new Schema(
       lowercase: true,
     },
     phone: { type: String, required: [true, "Phone of official is required"] },
-    categories: {
-      type: [String],
-      default: [],
-    },
+    category: { type: Schema.Types.ObjectId, ref: "Category" },
   },
   {
     timestamps: true,
   }
 );
 
-userSchema.index({ position: 1, jurisdiction: 1 }, { unique: true });
+officialSchema.index({ position: 1, jurisdiction: 1 }, { unique: true });
 
-export const officialModel = model("Official", userSchema);
+export const officialModel = model("Official", officialSchema);
