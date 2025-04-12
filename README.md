@@ -149,6 +149,16 @@ Retrieves a list of all government officials with their details.
 **Description:**
 This endpoint returns a list of all government officials, including their personal information, positions, and jurisdictions. The data includes officials at various levels of government (federal, state, local).
 
+**Query Parameters:**
+
+- `category` (optional): Filter officials by category name
+- `level` (optional): Filter officials by government level (federal/state/local)
+- `state` (optional): Filter officials by state
+- `position` (optional): Filter officials by position
+- `jurisdiction` (optional): Filter officials by jurisdiction
+- `name` (optional): Filter officials by name
+- `search` (optional): Search officials across multiple fields (name, position, jurisdiction, state, description, category name, category description)
+
 **Response Body:**
 
 ```json
@@ -171,9 +181,17 @@ This endpoint returns a list of all government officials, including their person
 - `description`: Additional information about the official
 - `email`: Contact email address
 - `phone`: Contact phone number
-- `categories`: Array of categories the official belongs to
+- `category`: Category the official belongs to
 - `createdAt`: Timestamp of when the record was created
 - `updatedAt`: Timestamp of when the record was last updated
+
+**Example Usage:**
+
+```
+GET /officials?level=federal&state=lagos
+GET /officials?category=governance-and-representation
+GET /officials?search=minister
+```
 
 #### Get Official by ID
 

@@ -1,7 +1,8 @@
 import { officialModel } from "../models/official.model";
+import { Official } from "../types/official.type";
 
-export const getOfficials = async () => {
-  const officials = await officialModel.find().populate("category");
+export const getOfficials = async (filters: Partial<Official> = {}) => {
+  const officials = await officialModel.find(filters).populate("category");
   return officials;
 };
 
