@@ -3,6 +3,7 @@ import express from "express";
 import { connectToDatabase } from "./utils/db";
 import { indexRouter } from "./routes/index.route";
 import { errorMiddleware } from "./middlewares/error.middleware";
+import cors from "cors";
 
 const app = express();
 
@@ -11,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 // Generic middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(cors());
 
 // Routes
 app.use("/api/v1", indexRouter);
