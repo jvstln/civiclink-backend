@@ -2,6 +2,7 @@ import { Category } from "./category.type";
 
 export interface Official {
   _id: string;
+  image: string;
   level: string;
   name: string;
   position: string;
